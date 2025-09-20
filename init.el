@@ -14,6 +14,8 @@
 (which-key-mode 1)
 (auto-fill-mode 1)
 
+(flymake-mode 1)
+
 (setq warning-minimum-level :error)
 
 (setq scroll-margin 15)
@@ -123,15 +125,10 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
-(use-package flycheck
+(use-package corfu
   :ensure t
-  :config
-  (global-flycheck-mode))
-
-(use-package company
-  :ensure
-  :hook ((after-init-hook . global-company-mode))
-  :config (setq company-idle-delay nil))
+  :init
+  (global-corfu-mode))
 
 (use-package go-mode
   :ensure t
@@ -196,7 +193,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(all-the-icons auto-package-update catppuccin-theme company corfu
+		   dashboard dired-icon eat exec-path-from-shell
+		   flycheck go-mode helm-projectile helm-rg json-mode
+		   magit move-text multiple-cursors nerd-icons
+		   page-break-lines rainbow-delimiters ripgrep
+		   telephone-line tree-sitter-langs treesit-auto xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
